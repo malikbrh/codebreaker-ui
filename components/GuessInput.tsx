@@ -41,7 +41,7 @@ const GuessInput: React.FC<GuessInputProps> = ({ code, onCodeChange }) => {
         ))}
       </View>
       <View style={styles.keypad}>
-        {[1, 2, 3, 4, 5, 6].map((num) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
           <Pressable
             key={num}
             style={({ pressed }) => [styles.key, pressed && styles.pressed]}

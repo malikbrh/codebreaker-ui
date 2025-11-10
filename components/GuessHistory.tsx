@@ -27,8 +27,10 @@ const GuessHistory: React.FC<GuessHistoryProps> = ({ guesses }) => {
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
         <View style={styles.guessItem}>
-          <Text>Guess #{item.id}: {item.guess.join(' ')}</Text>
-          <Text>Well Placed: {item.wellPlaced}, Misplaced: {item.misplaced}</Text>
+          <Text style={styles.guessText}>Guess #{item.id}: {item.guess.join(' ')}</Text>
+          <Text style={styles.resultText}>
+            Well Placed: {item.wellPlaced}, Misplaced: {item.misplaced}
+          </Text>
         </View>
       )}
     />

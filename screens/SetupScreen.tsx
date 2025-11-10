@@ -3,10 +3,11 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import GuessInput from '../components/GuessInput';
 
 interface SetupScreenProps {
-  onCodeSet: (code: number[]) => void;
+  onCodeSet: (code: number[]) => Promise<void>;
+  isLoading: boolean;
 }
 
-const SetupScreen: React.FC<SetupScreenProps> = ({ onCodeSet }) => {
+const SetupScreen: React.FC<SetupScreenProps> = ({ onCodeSet, isLoading }) => {
   const [code, setCode] = React.useState<(number | null)[]>([null, null, null, null]);
 
   const isCodeComplete = code.every((digit) => digit !== null);
@@ -21,13 +22,13 @@ const SetupScreen: React.FC<SetupScreenProps> = ({ onCodeSet }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Codemaker: Set Your Secret Code</Text>
       <Text style={styles.instructions}>
-        Player 2, look away! Enter a 4-digit code using numbers 1-6.
+        Enter a 4-digit code using numbers 1-9.
       </Text>
       <GuessInput code={code} onCodeChange={setCode} />
       <Button
-        title="Set Secret Code"
+        title={isLoading ? 'Creating Game...' : 'Set Secret Code'}
         onPress={handleSetCode}
-        disabled={!isCodeComplete}
+        disabled={!isCodeComplete || isLoading}
       />
     </View>
   );
