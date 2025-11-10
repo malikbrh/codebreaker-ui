@@ -63,15 +63,13 @@ const GuessingScreen: React.FC<GuessingScreenProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
     backgroundColor: '#f7f9fc',
   },
   historyContainer: {
     flex: 1,
   },
   bottomContainer: {
-    flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   inputContainer: {
     alignItems: 'center',
